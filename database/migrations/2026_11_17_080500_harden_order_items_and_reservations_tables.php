@@ -10,6 +10,9 @@ return new class extends Migration
     {
         Schema::table('order_items', function (Blueprint $table) {
             $table->dropForeign(['menu_id']);
+        });
+
+        Schema::table('order_items', function (Blueprint $table) {
             $table->foreign('menu_id')->references('id')->on('menus')->restrictOnDelete();
         });
 
@@ -22,11 +25,17 @@ return new class extends Migration
     {
         Schema::table('reservations', function (Blueprint $table) {
             $table->dropUnique(['booking_code']);
+        });
+
+        Schema::table('reservations', function (Blueprint $table) {
             $table->dropColumn('booking_code');
         });
 
         Schema::table('order_items', function (Blueprint $table) {
             $table->dropForeign(['menu_id']);
+        });
+
+        Schema::table('order_items', function (Blueprint $table) {
             $table->foreign('menu_id')->references('id')->on('menus')->cascadeOnDelete();
         });
     }
