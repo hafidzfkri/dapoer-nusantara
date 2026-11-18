@@ -1,0 +1,10 @@
+.git
+.env
+.env.*
+!.env.example
+/node_modules
+/vendor
+/storage/*.key
+/storage/logs/*.log
+/public/hot
+/public/storage

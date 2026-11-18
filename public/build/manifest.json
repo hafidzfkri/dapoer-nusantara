@@ -1,0 +1,32 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-DDj72PmY.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.tsx": {
+    "file": "assets/app-DBX_8qjf.js",
+    "name": "app",
+    "src": "resources/js/app.tsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/components/3d/KineticRibbon3D.tsx"
+    ],
+    "css": [
+      "assets/app-DDj72PmY.css"
+    ]
+  },
+  "resources/js/components/3d/KineticRibbon3D.tsx": {
+    "file": "assets/KineticRibbon3D-CD_Kd5CX.js",
+    "name": "KineticRibbon3D",
+    "src": "resources/js/components/3d/KineticRibbon3D.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx"
+    ]
+  }
+}
