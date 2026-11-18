@@ -33,15 +33,15 @@ RUN composer install --no-dev --no-scripts --no-interaction --prefer-dist --opti
 # Copy application source (includes pre-built public/build assets)
 COPY . .
 
-# Ensure writable directories for Laravel
+# Ensure writable directories for Laravel (including non-root container user on HF Spaces)
 RUN mkdir -p storage/framework/cache/data \
     storage/framework/sessions \
     storage/framework/views \
     storage/logs \
     bootstrap/cache \
-    && chmod -R 775 storage bootstrap/cache
+    && chmod -R 777 storage bootstrap/cache
 
-EXPOSE 10000
+EXPOSE 7860
 
-# Run migrations, seed initial roles/menus/tables idempotently, link storage, and serve on $PORT
-CMD sh -c "php artisan package:discover --ansi && php artisan migrate --seed --force && php artisan storage:link --force && php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"
+# Run migrations, seed initial roles/menus/tables idempotently, link storage, and serve on $PORT (7860 for HF Spaces)
+CMD sh -c "php artisan package:discover --ansi && php artisan migrate --seed --force && php artisan storage:link --force && php artisan serve --host=0.0.0.0 --port=${PORT:-7860}"
